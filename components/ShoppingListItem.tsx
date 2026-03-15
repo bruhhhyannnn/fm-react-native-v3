@@ -1,4 +1,5 @@
 import { theme } from "@/theme";
+import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import { Alert, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 type Props = {
@@ -23,15 +24,12 @@ export default function ShoppingListItem({ name, isCompleted }: Props) {
       ]}
     >
       <Text style={isCompleted ? styles.completedText : undefined}>{name}</Text>
-      <TouchableOpacity
-        style={[
-          styles.buttonStyle,
-          isCompleted ? styles.completedButton : undefined,
-        ]}
-        activeOpacity={0.8}
-        onPress={handleDelete}
-      >
-        <Text style={styles.buttonText}>Delete</Text>
+      <TouchableOpacity activeOpacity={0.8} onPress={handleDelete}>
+        <MaterialCommunityIcons
+          name="delete"
+          size={24}
+          color={isCompleted ? theme.colorGray : theme.colorRed}
+        />
       </TouchableOpacity>
     </View>
   );
@@ -42,7 +40,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: theme.colorCerulean,
     paddingVertical: 16,
-    paddingHorizontal: 8,
+    paddingHorizontal: 12,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
@@ -56,19 +54,5 @@ const styles = StyleSheet.create({
     color: theme.colorGray,
     textDecorationLine: "line-through",
     textDecorationColor: theme.colorGray,
-  },
-  buttonStyle: {
-    backgroundColor: theme.colorBlack,
-    padding: 8,
-    borderRadius: 6,
-  },
-  completedButton: {
-    backgroundColor: theme.colorGray,
-  },
-  buttonText: {
-    color: theme.colorWhite,
-    fontWeight: "bold",
-    textTransform: "uppercase",
-    letterSpacing: 1,
   },
 });
