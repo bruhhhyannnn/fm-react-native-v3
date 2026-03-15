@@ -5,9 +5,9 @@ export default function Index() {
   return (
     <View style={styles.container}>
       <ShoppingListItem name="Coffee" />
-      <ShoppingListItem name="dsadsa" />
-      <ShoppingListItem name="aa" />
-      <ShoppingListItem name="ttt" />
+      <ShoppingListItem name="Tea" isCompleted={true} />
+      <ShoppingListItem name="Milk" isCompleted={true} />
+      <ShoppingListItem name="Sugar" isCompleted={true} />
     </View>
   );
 }
